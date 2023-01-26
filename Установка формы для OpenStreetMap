@@ -1,0 +1,8 @@
+import osmnx as ox
+import networkx as nx
+
+ox.config(log_console=True, use_cache=True)
+place = 'Kirov, Russia'   #выбор местности
+mode = 'walk'   #выбор способа передвижения(walk', 'drive', 'bike', 'walk')
+graph = ox.graph_from_place(place, network_type=mode)
+form = ox.plot_graph(graph)   #вывод формы
