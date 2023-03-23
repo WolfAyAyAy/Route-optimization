@@ -1,0 +1,2 @@
+folium.PolyLine(locations=[list(reversed(route['features'][0]['geometry']['coordinates'][index])) for index in waypoints], color="blue").add_to(m)
+
