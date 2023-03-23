@@ -1,0 +1,12 @@
+m = folium.Map(location=list(reversed([8.681496,49.414601])), tiles="cartodbpositron", zoom_start = 13)
+
+coords = [[8.681495,49.41461],[8.687872,49.420318]]
+
+route = client.directions(coordinates=coords,
+                          profile='driving-car',
+                          format='geojson')
+
+folium.PolyLine(locations=[list(reversed(coord)) for coord in route['features'][0]['geometry']['coordinates']], color="red").add_to(m)
+
+
+m
