@@ -1,3 +1,10 @@
 waypoints = list(map(lambda step: step['way_points'], route['features'][0]['properties']['segments'][0]['steps']))
 
-[[0, 1], [1, 10], [10, 31], [31, 36], [36, 38], [38, 40], [40, 43], [43, 43]] # conclusion
+[[0, 1], 
+[1, 10], 
+[10, 31], 
+[31, 36], 
+[36, 38], 
+[38, 40], 
+[40, 43], 
+[43, 43]] 
