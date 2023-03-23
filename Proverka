@@ -1,0 +1,21 @@
+import openrouteservice as ors
+import folium
+
+client = ors.Client(key='5b3ce3597851110001cf6248cf4789e03c1a42a6be9933043605df18')
+
+import operator
+from functools import reduce
+
+m = folium.Map(location=list(reversed([8.681496,49.414601])), tiles="cartodbpositron", zoom_start = 13)
+
+coords = [[8.681495,49.41461],[8.687872,49.420318]]
+
+route = client.directions(coordinates=coords,profile='driving-car',format='geojson')
+
+waypoints = list(dict.fromkeys(reduce(operator.concat, list(map(lambda step: step['way_points'], route['features'][0]['properties']['segments'][0]['steps'])))))
+
+folium.PolyLine(locations=[list(reversed(coord)) for coord in route['features'][0]['geometry']['coordinates']], color="red").add_to(m)
+
+folium.PolyLine(locations=[list(reversed(route['features'][0]['geometry']['coordinates'][index])) for index in waypoints], color="blue").add_to(m)
+
+m
