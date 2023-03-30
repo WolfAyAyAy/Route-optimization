@@ -1,0 +1,5 @@
+distance = list(map(lambda step: step['distance'], route['features'][0]['properties']['segments'][0]['steps']))
+
+distance
+
+[1.9, 314.0, 500.9, 251.9, 126.8, 83.0, 130.8, 0.0]
