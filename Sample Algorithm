@@ -1,0 +1,11 @@
+distance = list(map(lambda step: step['distance'], route['features'][0]['properties']['segments'][0]['steps']))
+
+b = []
+for i in distance:
+    if i > 100:
+        b.append(i)
+
+b
+
+
+[314.0, 500.9, 251.9, 126.8, 130.8]
